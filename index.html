@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	
+	<link rel="stylesheet" href="css/style.css">
+	<script src="js/jquery-1.11.1.min.js"></script>
+	<title>CSS Gallery</title>
+</head>
+<body>
+<div class="full-screen">
+	<div data-type="png" class="popup-img full-img"></div>
+	<div data-type="jpg" class="popup-img"></div>
+	<div data-type="jpg" class="popup-img"></div>
+	<div data-type="png" class="popup-img"></div>
+</div>
+<script>
+	$(".popup-img").each(function(index){
+		//Calcule Vertical Position and read image type
+		var VerticalPos=(index*100)+10*index;		
+		var type=$(this).data('type');	
+
+		//Assigning values
+		$(this).css('top',VerticalPos+'px');
+		$(this).data('pos',VerticalPos);
+
+		//Assigning image
+		$(this).css('background-image','url(imgs/img'+index+'.'+type+')');
+
+		
+	});
+
+	$(".popup-img").on('click',function(){
+		//read Older Position
+		var olderpos= $('.full-img').data('pos');
+
+		//Assigning Older Position and remove Class full-img
+		$('.full-img').css('top',olderpos);
+		$('.full-img').removeClass('full-img');
+
+		//Assigning Class to the current element
+		$(this).toggleClass('full-img');	
+		$(this).css('top',0);
+
+	});
+
+</script>
+	
+</body>
+</html>
