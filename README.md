@@ -1,7 +1,7 @@
 #css-gallery
-===========
-
+------------
 css gallery with amazing effects.
+=============================
 It's an awesome gallery in css, jquery required for interaction with the user
 
 
